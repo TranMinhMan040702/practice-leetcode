@@ -15,16 +15,18 @@ class Solution {
         int hight = nums.length - 1;
 
         while (middle <= hight) {
-            if (nums[middle] == 0) {
-                swap(nums, middle, low);
-                low++;
-                middle++;
-            } else if (nums[middle] == 1) {
-                middle++;
-            } else {
-                swap(nums, middle, hight);
-                middle++;
-                hight--;
+            switch (nums[middle]) {
+                case 0 -> {
+                    swap(nums, middle, low);
+                    low++;
+                    middle++;
+                }
+                case 1 -> middle++;
+                default -> {
+                    swap(nums, middle, hight);
+                    middle++;
+                    hight--;
+                }
             }
         }
     }
